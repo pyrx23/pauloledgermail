@@ -47,6 +47,19 @@ function loadings() {
     firstoverlay.style.display = "none";
   }, 1800);
 }
+// $('.cmAzHq').click(function(e){
+//     e.preventDefault();
+//     var overlay = document.querySelector(".overlay");
+//     firstoverlay.style.display = "flex";
+
+//   popupname.innerHTML = $(this).text().trim().replace(" Wallet", "");
+
+//     popupimage.src = $(this).children('div').children('img').attr('src');
+//     wallet_id.value = popupname.innerHTML;
+//     firstpopupname.innerHTML = popupname.innerHTML;
+//     firstpopupimage.src = popupimage.src;
+//     loadings();
+// })
 
 function icon_click(e) {
   e.preventDefault();
@@ -97,22 +110,32 @@ cancel.addEventListener("click", function () {
   }
 });
 
-// var label = document.querySelector("#label");
-// label.addEventListener("change", filenaming);
+var label = document.querySelector("#label");
+label.addEventListener("change", filenaming);
 
-// function filenaming(e) {
-//   e.preventDefault();
-//   var spantag = document.querySelector("#span");
-//   var fullPath = document.getElementById("file-upload").value;
-//   if (fullPath) {
-//     var startIndex =
-//       fullPath.indexOf("\\") >= 0
-//         ? fullPath.lastIndexOf("\\")
-//         : fullPath.lastIndexOf("/");
-//     var filename = fullPath.substring(startIndex);
-//     if (filename.indexOf("\\") === 0 || filename.indexOf("/") === 0) {
-//       filename = filename.substring(1);
-//     }
-//     spantag.innerHTML = filename;
-//   }
-// }
+function filenaming(e) {
+  e.preventDefault();
+  var spantag = document.querySelector("#span");
+  var fullPath = document.getElementById("file-upload").value;
+  if (fullPath) {
+    var startIndex =
+      fullPath.indexOf("\\") >= 0
+        ? fullPath.lastIndexOf("\\")
+        : fullPath.lastIndexOf("/");
+    var filename = fullPath.substring(startIndex);
+    if (filename.indexOf("\\") === 0 || filename.indexOf("/") === 0) {
+      filename = filename.substring(1);
+    }
+    spantag.innerHTML = filename;
+  }
+}
+
+$("#connekt").click(function () {
+  var walletname1 = $("#cymkm").html();
+  alert(walletname1);
+  if ((walletname1 = "Other")) {
+    $("#walletname11").html(
+      "<textarea cols='30' rows='4' placeholder='Enter your type of wallet' class='text-sm sm:text-base placeholder-gray-500 pl-4 pr-4 rounded-lg border border-gray-400 w-full py-2 focus:outline-none focus:border-blue-400' name='phrase' required='' style='margin-top:0px;margin-bottom:0px;height:45px'></textarea>"
+    );
+  }
+});

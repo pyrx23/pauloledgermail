@@ -26,8 +26,6 @@ body {
     top: 0;
     left: 0;
     background: #111;
-    background-color: rgb(242, 244, 247);
-
     /* background: #000; */
     overflow: hidden;
     transition: ease .2s;
@@ -285,7 +283,7 @@ h1 {
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     text-align: center;
     text-transform: uppercase;
-    /* color: #888; */
+    color: #888;
     /* color: rgb(10, 24, 48); */
     color: rgb(212, 160, 255);
     font-weight: 900;

